@@ -1,0 +1,48 @@
+[gd_scene format=3 uid="uid://08oa64bxdm6u"]
+
+[ext_resource type="Script" uid="uid://brlhwlsq3un74" path="res://Scenes/Game/Game.cs" id="1_rdw05"]
+[ext_resource type="Texture2D" uid="uid://dik7lbg8agrxh" path="res://assets/GameBg.png" id="2_gwu2e"]
+[ext_resource type="PackedScene" uid="uid://bsmknxka54x2" path="res://Scenes/Paddle/Paddle.tscn" id="3_xbxml"]
+[ext_resource type="PackedScene" uid="uid://djvmp2cksq58g" path="res://Scenes/Diamond/Diamond.tscn" id="4_ln2h6"]
+[ext_resource type="AudioStream" uid="uid://c2sw10msq073w" path="res://assets/bgm_action_5.mp3" id="5_y3kpf"]
+[ext_resource type="AudioStream" uid="uid://duvsv3m5biokc" path="res://assets/spell1_0.wav" id="6_3k6gv"]
+
+[node name="Game" type="Node2D" unique_id=764093272 node_paths=PackedStringArray("_timer", "_scoreLabel", "_backGroundMusic", "_effectMusic")]
+script = ExtResource("1_rdw05")
+_diamondScene = ExtResource("4_ln2h6")
+_timer = NodePath("Timer")
+_scoreLabel = NodePath("ScoreLabel")
+_backGroundMusic = NodePath("BackGroundMusic")
+_effectMusic = NodePath("EffectMusic")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1465085278]
+position = Vector2(576, 324)
+scale = Vector2(0.65, 0.65)
+texture = ExtResource("2_gwu2e")
+
+[node name="Paddle" parent="." unique_id=1934297715 instance=ExtResource("3_xbxml")]
+position = Vector2(576, 630)
+
+[node name="Timer" type="Timer" parent="." unique_id=1685767715]
+wait_time = 1.5
+autostart = true
+
+[node name="ScoreLabel" type="Label" parent="." unique_id=1082132033]
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 64.0
+offset_bottom = 48.0
+theme_override_colors/font_color = Color(0.14799774, 0.39668775, 0.37422138, 1)
+theme_override_colors/font_shadow_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+text = "0000"
+
+[node name="BackGroundMusic" type="AudioStreamPlayer" parent="." unique_id=1436058738]
+stream = ExtResource("5_y3kpf")
+volume_db = -16.0
+autoplay = true
+parameters/looping = true
+
+[node name="EffectMusic" type="AudioStreamPlayer2D" parent="." unique_id=1393139859]
+stream = ExtResource("6_3k6gv")

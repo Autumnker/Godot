@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://djvmp2cksq58g"]
+
+[ext_resource type="Script" uid="uid://0do8c0uxhfqx" path="res://Scenes/Diamond/Diamond.cs" id="1_1v0c8"]
+[ext_resource type="Texture2D" uid="uid://ddh2gg7b3gt4x" path="res://assets/element_red_diamond.png" id="1_xdntj"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4beov"]
+
+[node name="Diamond" type="Area2D" unique_id=1987766248]
+script = ExtResource("1_1v0c8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1551964965]
+texture = ExtResource("1_xdntj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=963229988]
+rotation = 0.7853982
+scale = Vector2(1.7, 1.7)
+shape = SubResource("RectangleShape2D_4beov")
